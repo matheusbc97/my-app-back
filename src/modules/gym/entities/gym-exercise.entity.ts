@@ -13,6 +13,8 @@ export class GymExercise {
   )
   exercisesItems: GymExerciseItem[];
 
-  @ManyToOne(() => GymTraining, (gymTraining) => gymTraining.exercises)
+  @ManyToOne(() => GymTraining, (gymTraining) => gymTraining.exercises, {
+    onDelete: 'CASCADE',
+  })
   training: GymTraining;
 }
