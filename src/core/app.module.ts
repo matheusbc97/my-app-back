@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { WeightsModule } from 'src/modules/weights/weights/weights.module';
 
 import { GymModule } from '../modules/gym/gym.module';
 
@@ -20,6 +21,7 @@ import entities from './database/entities';
       synchronize: true,
     }),
     GymModule,
+    WeightsModule,
   ],
 })
 export class AppModule {}

@@ -1,5 +1,6 @@
 import { GymExerciseItem } from 'src/modules/gym/entities/gym-exercise-item.entity';
 import { GymExercise } from 'src/modules/gym/entities/gym-exercise.entity';
 import { GymTraining } from 'src/modules/gym/entities/gym-training.entity';
+import { Weight } from 'src/modules/weights/weights/entities/weight.entity';
 
-export default [GymExercise, GymTraining, GymExerciseItem];
+export default [GymExercise, GymTraining, GymExerciseItem, Weight];

@@ -16,7 +16,6 @@ export class GymExerciseItemService {
     id: number,
     updateGymExerciseDto: Omit<UpdateGymExerciseItemDto, 'id'>,
   ) {
-    console.log(id, updateGymExerciseDto);
     const response = await this.gymExerciseItemRepository.update(
       id,
       updateGymExerciseDto,
