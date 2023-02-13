@@ -10,12 +10,7 @@ export class FinancesByMonthController {
 
   @Get()
   findAll(
-    @Query({
-      transform: (value) =>
-        Array.isArray(value.yearsAndMonths)
-          ? value
-          : { ...value, yearsAndMonths: [value.yearsAndMonths] },
-    })
+    @Query()
     params: GetFinancesByMonthParamsDto,
   ) {
     return this.financesService.findByMonth(params);
