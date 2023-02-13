@@ -1,6 +1,6 @@
 import { Finance } from '../entities/finance.entity';
 
-export interface FinanceByMonth {
+export class FinanceByMonthDto {
   month: number;
   year: number;
   finances: Finance[];
