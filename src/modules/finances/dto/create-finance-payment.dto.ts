@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-export class CreateFinanceHistoricDto {
+export class CreateFinancePaymentDto {
   @ApiProperty()
   date: Date;
 

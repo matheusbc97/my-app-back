@@ -1,15 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import {
-  Between,
-  LessThan,
-  LessThanOrEqual,
-  MoreThanOrEqual,
-  Repository,
-} from 'typeorm';
-import { FinanceByMonthDto } from '../dto/finance-by-month.dto';
+import { Between, Repository } from 'typeorm';
+import { FinanceByMonthSectionDto } from '../dto/finance-by-month-section.dto';
 import { GetFinancesByMonthParamsDto } from '../dto/get-finances-by-month-params.dto';
-import { FinanceHistoric } from '../entities/finance-historic.entity';
+import { FinancePayment } from '../entities/finance-payment.entity';
 import { Finance } from '../entities/finance.entity';
 
 function yearAndMonthToNumberArray(yearAndMonth: string): [number, number] {
@@ -23,8 +17,8 @@ export class FinancesByMonthService {
   constructor(
     @InjectRepository(Finance)
     private financesRepository: Repository<Finance>,
-    @InjectRepository(FinanceHistoric)
-    private financesHistoricRepository: Repository<FinanceHistoric>,
+    @InjectRepository(FinancePayment)
+    private financesPaymentsRepository: Repository<FinancePayment>,
   ) {}
 
   async findByMonth({
@@ -43,7 +37,7 @@ export class FinancesByMonthService {
 
     const monthsLength = yearEndLessYearStart * 12 + monthEndLessMonthStart + 1;
 
-    const financesHistoric = await this.financesHistoricRepository.find({
+    const financesPayments = await this.financesPaymentsRepository.find({
       where: {
         date: Between(
           new Date(yearStart, monthStart - 1, 0),
@@ -56,8 +50,22 @@ export class FinancesByMonthService {
       const year = yearStart + Math.floor((monthStart + index) / 12);
       const month = (monthStart + index) % 12;
 
-      const financeByMonth: FinanceByMonthDto = {
-        finances,
+      const financesWithPayment = finances.map((finance) => {
+        const financePayment = financesPayments.find(
+          (financePayment) =>
+            financePayment.financeId === finance.id &&
+            financePayment.date.getMonth() === month &&
+            financePayment.date.getFullYear() === year,
+        );
+
+        return {
+          ...finance,
+          payment: financePayment,
+        };
+      });
+
+      const financeByMonth: FinanceByMonthSectionDto = {
+        finances: financesWithPayment,
         month,
         year,
         total: finances.reduce((acc, finance) => acc + finance.amount, 0),

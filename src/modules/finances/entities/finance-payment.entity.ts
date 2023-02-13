@@ -2,15 +2,18 @@ import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { Finance } from './finance.entity';
 
 @Entity()
-export class FinanceHistoric {
+export class FinancePayment {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
   date: Date;
 
-  @ManyToOne(() => Finance, (finance) => finance.financeHistoric, {
+  @ManyToOne(() => Finance, (finance) => finance.financePayment, {
     onDelete: 'CASCADE',
   })
   finance: Finance;
+
+  @Column()
+  financeId: number;
 }

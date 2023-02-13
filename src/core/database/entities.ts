@@ -1,4 +1,4 @@
-import { FinanceHistoric } from 'src/modules/finances/entities/finance-historic.entity';
+import { FinancePayment } from 'src/modules/finances/entities/finance-payment.entity';
 import { Finance } from 'src/modules/finances/entities/finance.entity';
 import { GymExerciseItem } from 'src/modules/gym/entities/gym-exercise-item.entity';
 import { GymExercise } from 'src/modules/gym/entities/gym-exercise.entity';
@@ -11,5 +11,5 @@ export default [
   GymExerciseItem,
   Weight,
   Finance,
-  FinanceHistoric,
+  FinancePayment,
 ];

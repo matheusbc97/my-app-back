@@ -1,30 +1,30 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { CreateFinanceHistoricDto } from '../dto/create-finance-historic.dto';
-import { UpdateFinanceHistoricDto } from '../dto/udate-finance-historic.dto';
-import { FinanceHistoric } from '../entities/finance-historic.entity';
+import { CreateFinancePaymentDto } from '../dto/create-finance-payment.dto';
+import { UpdateFinancePaymentDto } from '../dto/update-finance-payment.dto';
+import { FinancePayment } from '../entities/finance-payment.entity';
 
 @Injectable()
-export class FinancesHistoricService {
+export class FinancesPaymentService {
   constructor(
-    @InjectRepository(FinanceHistoric)
-    private financesHistoricRepository: Repository<FinanceHistoric>,
+    @InjectRepository(FinancePayment)
+    private financesPaymentsRepository: Repository<FinancePayment>,
   ) {}
 
-  create({ financeId, ...params }: CreateFinanceHistoricDto) {
-    return this.financesHistoricRepository.save({
+  create({ financeId, ...params }: CreateFinancePaymentDto) {
+    return this.financesPaymentsRepository.save({
       finance: { id: financeId },
       ...params,
     });
   }
 
   findAll() {
-    return this.financesHistoricRepository.find();
+    return this.financesPaymentsRepository.find();
   }
 
   async findOne(id: number) {
-    const response = await this.financesHistoricRepository.findOneBy({ id });
+    const response = await this.financesPaymentsRepository.findOneBy({ id });
 
     if (response === null) {
       throw new NotFoundException(`Finance Historic with id ${id} not found`);
@@ -33,15 +33,15 @@ export class FinancesHistoricService {
     return response;
   }
 
-  update(id: number, updateFinanceHistoricDto: UpdateFinanceHistoricDto) {
-    return this.financesHistoricRepository.save({
+  update(id: number, updateFinancePaymentDto: UpdateFinancePaymentDto) {
+    return this.financesPaymentsRepository.save({
       id,
-      ...updateFinanceHistoricDto,
+      ...updateFinancePaymentDto,
     });
   }
 
   async remove(id: number) {
-    const response = await this.financesHistoricRepository.delete(id);
+    const response = await this.financesPaymentsRepository.delete(id);
 
     if (response.affected === 0) {
       throw new NotFoundException(`Finance Historic with id ${id} not found`);

@@ -1,8 +1,28 @@
-import { Finance } from '../entities/finance.entity';
+import { ApiProperty } from '@nestjs/swagger';
+import { FinancePayment } from '../entities/finance-payment.entity';
 
 export class FinanceByMonthDto {
-  month: number;
-  year: number;
-  finances: Finance[];
-  total: number;
+  @ApiProperty()
+  id: number;
+
+  @ApiProperty()
+  paymentMethod: string;
+
+  @ApiProperty()
+  paid: boolean;
+
+  @ApiProperty()
+  day: number;
+
+  @ApiProperty()
+  fixedDate: boolean;
+
+  @ApiProperty()
+  amount: number;
+
+  @ApiProperty()
+  name: string;
+
+  @ApiProperty()
+  payment: FinancePayment;
 }

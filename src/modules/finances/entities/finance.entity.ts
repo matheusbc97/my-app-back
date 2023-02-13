@@ -1,5 +1,5 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
-import { FinanceHistoric } from './finance-historic.entity';
+import { FinancePayment } from './finance-payment.entity';
 
 @Entity()
 export class Finance {
@@ -27,9 +27,6 @@ export class Finance {
   //type: FinanceType;
   //group: Group;
 
-  @OneToMany(
-    () => FinanceHistoric,
-    (financeHistoric) => financeHistoric.finance,
-  )
-  financeHistoric: FinanceHistoric[];
+  @OneToMany(() => FinancePayment, (financePayment) => financePayment.finance)
+  financePayment: FinancePayment[];
 }
