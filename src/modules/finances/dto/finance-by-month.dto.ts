@@ -9,9 +9,6 @@ export class FinanceByMonthDto {
   paymentMethod: string;
 
   @ApiProperty()
-  paid: boolean;
-
-  @ApiProperty()
   day: number;
 
   @ApiProperty()

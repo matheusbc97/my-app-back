@@ -5,9 +5,6 @@ export class CreateFinanceDto {
   paymentMethod: string;
 
   @ApiProperty()
-  paid: boolean;
-
-  @ApiProperty()
   day: number;
 
   @ApiProperty()

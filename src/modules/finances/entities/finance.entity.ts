@@ -10,9 +10,6 @@ export class Finance {
   paymentMethod: string;
 
   @Column()
-  paid: boolean;
-
-  @Column()
   day: number;
 
   @Column()

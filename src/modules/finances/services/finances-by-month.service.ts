@@ -47,8 +47,14 @@ export class FinancesByMonthService {
     });
 
     const financesByMonth = Array.from({ length: monthsLength }, (_, index) => {
-      const year = yearStart + Math.floor((monthStart + index) / 12);
-      const month = (monthStart + index) % 12;
+      const monthNumber = monthStart + index;
+
+      const year =
+        monthNumber === 12
+          ? yearStart
+          : yearStart + Math.floor(monthNumber / 12);
+
+      const month = monthNumber === 12 ? monthNumber : monthNumber % 12;
 
       const financesWithPayment = finances.map((finance) => {
         const financePayment = financesPayments.find(
