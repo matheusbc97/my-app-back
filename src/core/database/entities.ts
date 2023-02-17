@@ -1,3 +1,4 @@
+import { FinanceNote } from 'src/modules/finances/entities/finance-note.entity';
 import { FinancePayment } from 'src/modules/finances/entities/finance-payment.entity';
 import { Finance } from 'src/modules/finances/entities/finance.entity';
 import { GymExerciseItem } from 'src/modules/gym/entities/gym-exercise-item.entity';
@@ -12,4 +13,5 @@ export default [
   Weight,
   Finance,
   FinancePayment,
+  FinanceNote,
 ];

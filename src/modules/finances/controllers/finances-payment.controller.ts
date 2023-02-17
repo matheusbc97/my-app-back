@@ -13,7 +13,7 @@ import { CreateFinancePaymentDto } from '../dto/create-finance-payment.dto';
 import { UpdateFinancePaymentDto } from '../dto/update-finance-payment.dto';
 
 @Controller('finances-payments')
-@ApiTags('FinancesPayment')
+@ApiTags('Finances Payment')
 export class FinancesPaymentController {
   constructor(
     private readonly financesPaymentsService: FinancesPaymentService,
