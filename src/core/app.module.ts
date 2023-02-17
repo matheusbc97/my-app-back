@@ -5,6 +5,7 @@ import { FinancesModule } from 'src/modules/finances/finances.module';
 import { WeightsModule } from 'src/modules/weights/weights/weights.module';
 
 import { GymModule } from '../modules/gym/gym.module';
+import { AppController } from './app.controller';
 
 import entities from './database/entities';
 
@@ -25,5 +26,6 @@ import entities from './database/entities';
     WeightsModule,
     FinancesModule,
   ],
+  controllers: [AppController],
 })
 export class AppModule {}
