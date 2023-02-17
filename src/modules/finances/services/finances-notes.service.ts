@@ -9,19 +9,19 @@ import { FinanceNote } from '../entities/finance-note.entity';
 export class FinancesNotesService {
   constructor(
     @InjectRepository(FinanceNote)
-    private financesPaymentsRepository: Repository<FinanceNote>,
+    private financesNotesRepository: Repository<FinanceNote>,
   ) {}
 
   create(params: CreateFinanceNoteDto) {
-    return this.financesPaymentsRepository.save(params);
+    return this.financesNotesRepository.save(params);
   }
 
   findAll() {
-    return this.financesPaymentsRepository.find();
+    return this.financesNotesRepository.find();
   }
 
   async findOne(id: number) {
-    const response = await this.financesPaymentsRepository.findOneBy({ id });
+    const response = await this.financesNotesRepository.findOneBy({ id });
 
     if (response === null) {
       throw new NotFoundException(`Finance Note with id ${id} not found`);
@@ -31,14 +31,14 @@ export class FinancesNotesService {
   }
 
   update(id: number, updateFinanceNoteDto: UpdateFinanceNoteDto) {
-    return this.financesPaymentsRepository.save({
+    return this.financesNotesRepository.save({
       id,
       ...updateFinanceNoteDto,
     });
   }
 
   async remove(id: number) {
-    const response = await this.financesPaymentsRepository.delete(id);
+    const response = await this.financesNotesRepository.delete(id);
 
     if (response.affected === 0) {
       throw new NotFoundException(`Finance Note with id ${id} not found`);

@@ -1,3 +1,4 @@
+import { Bank } from 'src/modules/finances/entities/bank.entity';
 import { FinanceNote } from 'src/modules/finances/entities/finance-note.entity';
 import { FinancePayment } from 'src/modules/finances/entities/finance-payment.entity';
 import { Finance } from 'src/modules/finances/entities/finance.entity';
@@ -14,4 +15,5 @@ export default [
   Finance,
   FinancePayment,
   FinanceNote,
+  Bank,
 ];
