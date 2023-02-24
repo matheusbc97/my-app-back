@@ -7,7 +7,7 @@ import {
   Param,
   Delete,
 } from '@nestjs/common';
-import { FinancesPaymentService } from '../services/finances-historic.service';
+import { FinancesPaymentService } from '../services/finances-payment.service';
 import { ApiTags } from '@nestjs/swagger';
 import { CreateFinancePaymentDto } from '../dto/create-finance-payment.dto';
 import { UpdateFinancePaymentDto } from '../dto/update-finance-payment.dto';

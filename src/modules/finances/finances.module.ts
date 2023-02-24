@@ -6,7 +6,7 @@ import { Finance } from './entities/finance.entity';
 import { FinancesByMonthController } from './controllers/finances-by-month.controller';
 import { FinancesByMonthService } from './services/finances-by-month.service';
 import { FinancesPaymentController } from './controllers/finances-payment.controller';
-import { FinancesPaymentService } from './services/finances-historic.service';
+import { FinancesPaymentService } from './services/finances-payment.service';
 import { FinancePayment } from './entities/finance-payment.entity';
 import { FinanceNote } from './entities/finance-note.entity';
 import { FinancesNotesController } from './controllers/finances-notes.controller';

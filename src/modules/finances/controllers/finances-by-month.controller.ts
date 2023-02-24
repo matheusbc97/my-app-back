@@ -1,6 +1,6 @@
 import { Controller, Get, Query } from '@nestjs/common';
 import { ApiOkResponse, ApiTags } from '@nestjs/swagger';
-import { FinanceByMonthSectionDto } from '../dto/finance-by-month-section.dto';
+import { FinanceByMonthDto } from '../dto/finance-by-month.dto';
 import { GetFinancesByMonthParamsDto } from '../dto/get-finances-by-month-params.dto';
 import { FinancesByMonthService } from '../services/finances-by-month.service';
 
@@ -12,7 +12,7 @@ export class FinancesByMonthController {
   @Get()
   @ApiOkResponse({
     isArray: true,
-    type: FinanceByMonthSectionDto,
+    type: FinanceByMonthDto,
   })
   findAll(
     @Query()
