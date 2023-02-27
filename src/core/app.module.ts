@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { FinancesModule } from 'src/modules/finances/finances.module';
+import { GoalsModule } from 'src/modules/goals/goals.module';
 import { WeightsModule } from 'src/modules/weights/weights/weights.module';
 
 import { GymModule } from '../modules/gym/gym.module';
@@ -25,6 +26,7 @@ import entities from './database/entities';
     GymModule,
     WeightsModule,
     FinancesModule,
+    GoalsModule,
   ],
   controllers: [AppController],
 })
