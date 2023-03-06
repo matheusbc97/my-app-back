@@ -25,5 +25,5 @@ export class Finance {
   //group: Group;
 
   @OneToMany(() => FinancePayment, (financePayment) => financePayment.finance)
-  financePayment: FinancePayment[];
+  financePayments: FinancePayment[];
 }

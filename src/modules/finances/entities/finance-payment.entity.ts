@@ -9,7 +9,7 @@ export class FinancePayment {
   @Column()
   date: Date;
 
-  @ManyToOne(() => Finance, (finance) => finance.financePayment, {
+  @ManyToOne(() => Finance, (finance) => finance.financePayments, {
     onDelete: 'CASCADE',
   })
   finance: Finance;

@@ -1,4 +1,5 @@
-import { PrimaryGeneratedColumn, Column, Entity } from 'typeorm';
+import { PrimaryGeneratedColumn, Column, Entity, OneToMany } from 'typeorm';
+import { GoalQuest } from './goal-quest.entity';
 
 @Entity()
 export class Goal {
@@ -9,5 +10,11 @@ export class Goal {
   name: string;
 
   @Column()
+  description?: string;
+
+  @Column()
   priority: number;
+
+  @OneToMany(() => GoalQuest, (quest) => quest.goal)
+  quests: GoalQuest[];
 }
