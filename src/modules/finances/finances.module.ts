@@ -14,10 +14,19 @@ import { FinancesNotesService } from './services/finances-notes.service';
 import { Bank } from './entities/bank.entity';
 import { FinancesBanksController } from './controllers/finances-banks.controller';
 import { FinancesBanksService } from './services/finances-banks.service';
+import { PaymentMethod } from './entities/payment-method.entity';
+import { PaymentMethodsController } from './controllers/payment-methods.controller';
+import { PaymentMethodsService } from './services/payment-methods.service';
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([Finance, FinancePayment, FinanceNote, Bank]),
+    TypeOrmModule.forFeature([
+      Finance,
+      FinancePayment,
+      FinanceNote,
+      Bank,
+      PaymentMethod,
+    ]),
   ],
   controllers: [
     FinancesController,
@@ -25,6 +34,7 @@ import { FinancesBanksService } from './services/finances-banks.service';
     FinancesPaymentController,
     FinancesNotesController,
     FinancesBanksController,
+    PaymentMethodsController,
   ],
   providers: [
     FinancesService,
@@ -32,6 +42,7 @@ import { FinancesBanksService } from './services/finances-banks.service';
     FinancesPaymentService,
     FinancesNotesService,
     FinancesBanksService,
+    PaymentMethodsService,
   ],
 })
 export class FinancesModule {}
